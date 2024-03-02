@@ -1,0 +1,45 @@
+﻿<Window x:Class="Lab2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab2"
+        mc:Ignorable="d"
+        Title="Декоратор" Height="450" Width="800">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="#FF7A9FBB"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Margin" Value="10,35,10,35"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+        </Style>
+    </Window.Resources>
+    <Grid Background="#FF6D62BB">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50*"/>
+                <ColumnDefinition Width="25*"/>
+                <ColumnDefinition Width="25*"/>
+            </Grid.ColumnDefinitions>
+            <Button Click="Button_Click" Grid.ColumnSpan="2" Margin="359,35,0,35" BorderBrush="Black" BorderThickness="3" RenderTransformOrigin="0.252,0.507">Выбрать файл</Button>
+            <TextBox x:Name="TextBoxFilePath" VerticalAlignment="Center" Margin="64,0,36,0" IsReadOnly="True" Grid.Column="1" Grid.ColumnSpan="2"/>
+            <Button HorizontalContentAlignment="Center" Grid.Column="2" Content="Read" Click="SaveButton_Click" BorderBrush="Black" BorderThickness="3" Margin="0,364,0,-293" Width="90" HorizontalAlignment="Center"/>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Border CornerRadius="20" Background="#FF7A9FBB" Margin="50,15,50,10" BorderBrush="Black" BorderThickness="3">
+                <TextBlock x:Name="FirstResultTextBlock" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" Text="{Binding FileContent}"/>
+            </Border>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Border CornerRadius="20" Background="#FF7A9FBB" Margin="50,15,50,10" BorderBrush="Black" BorderThickness="3">
+                <TextBlock x:Name="SecondResultTextBlock" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"/>
+            </Border>
+        </Grid>
+    </Grid>
+</Window>
